@@ -99,6 +99,16 @@ export default function reducer(state, { type, payload }) {
 				}
 			};
 
+		case 'ARRIVE_REVERSE':
+			const { searchOptions } = state.flight;
+			const { from, to } = searchOptions;
+			return {
+				...state,
+				flight: {
+					searchOptions: { ...searchOptions, to: from, from: to }
+				}
+			};
+
 		default:
 			return state;
 	}

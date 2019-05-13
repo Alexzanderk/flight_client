@@ -6,59 +6,59 @@ import AirplaneIcon from '@material-ui/icons/AirplanemodeActive';
 
 import DatePickerWithInputs from '../DatePicker/components/DatePickerWithInputs';
 import Options from './Panel/Options';
-import SearchFields from './Panel/SearchFields';
+// import SearchFields from './Panel/SearchFields';
+import SearchInput from './Panel/SearchField/SearchInputWithDownshift';
 
 const SearchPanel = ({ classes, ...props }) => {
-    return (
-        <div className={classes.root}>
-            <Typography className={classes.title} component="h1" variant="h3">
-                Let's find the best tickets
-            </Typography>
-            <div className={classes.container}>
-                <SearchFields />
-                <DatePickerWithInputs />
-                <Options />
-            </div>
+	return (
+		<div className={classes.root}>
+			<Typography className={classes.title} component="h1" variant="h3">
+				Let's find the best tickets
+			</Typography>
+			<div className={classes.container}>
+				<SearchInput>
+					<SearchInput.InputFrom />
+					<SearchInput.InputTo />
+				</SearchInput>
+				<DatePickerWithInputs />
+				<Options />
+			</div>
 
-            <Button
-                className={classes.button}
-                color="secondary"
-                variant="contained"
-                size="large">
-                Let's Find The Chipest Tickets
-                <AirplaneIcon className={classes.planeIcon} />
-            </Button>
-        </div>
-    );
+			<Button className={classes.button} color="secondary" variant="contained" size="large">
+				Let's Find The Chipest Tickets
+				<AirplaneIcon className={classes.planeIcon} />
+			</Button>
+		</div>
+	);
 };
 
 const style = theme => ({
-    root: {
-        flex: 1,
-        flexGrow: 1,
-        display: 'flex',
-        flexFlow: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: theme.palette.primary.main
-    },
-    container: {
-        display: 'flex'
-    },
-    title: {
-        color: '#fff',
-        marginBottom: 25
-    },
-    button: {
-        fontSize: 22,
-        marginTop: 50,
-        fontWeight: 800,
-        color: '#fff'
-    },
-    planeIcon: {
-      transform: 'rotate(90deg)',
-      fontSize: 32,
-    }
+	root: {
+		flex: 1,
+		flexGrow: 1,
+		display: 'flex',
+		flexFlow: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		background: theme.palette.primary.main
+	},
+	container: {
+		display: 'flex'
+	},
+	title: {
+		color: '#fff',
+		marginBottom: 25
+	},
+	button: {
+		fontSize: 22,
+		marginTop: 50,
+		fontWeight: 800,
+		color: '#fff'
+	},
+	planeIcon: {
+		transform: 'rotate(90deg)',
+		fontSize: 32
+	}
 });
 
 export default withStyles(style)(SearchPanel);
