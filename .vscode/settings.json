@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#40b3e0",
+    "titleBar.inactiveBackground": "#004561"
+  },
+  "jest.debugMode": true,
+  "prettier.eslintIntegration": true,
+  "prettier.useTabs": true,
+  "editor.tabSize": 2,
+  "prettier.printWidth": 120
+}
