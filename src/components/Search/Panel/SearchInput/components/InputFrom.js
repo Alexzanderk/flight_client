@@ -10,6 +10,7 @@ import ListItemAirports from './ListItemAirports';
 
 import { useStyles } from '../hooks/useStyle';
 import { checkIndex } from '../../../../../utils/indexCheck';
+import { config } from '../../../../../config';
 
 const InputFrom = ({ onUserAction, from, result }) => {
 	const classes = useStyles();
@@ -49,21 +50,27 @@ const InputFrom = ({ onUserAction, from, result }) => {
 												})}
 											/>
 											{item.airports.length > 1 &&
-												item.airports.map((airport, index) => (
-													<ListItemAirports
-														airport={airport}
-														{...getItemProps({
-															item: airport,
-															key: airport.code,
-															selected: checkIndex(result, airport) === highlightedIndex,
-															button: true,
-															divider: true
-														})}
-													/>
-												))}
+												item.airports.map(
+													(airport, index) =>
+														index < config.search.airportLimit && (
+															<ListItemAirports
+																airport={airport}
+																{...getItemProps({
+																	item: airport,
+																	key: airport.code,
+																	selected:
+																		checkIndex(result, airport) ===
+																		highlightedIndex,
+																	button: true,
+																	divider: true
+																})}
+															/>
+														)
+												)}
 										</Fragment>
 									);
 								}
+								return null;
 							})}
 						</List>
 					)}

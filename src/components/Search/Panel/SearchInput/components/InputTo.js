@@ -10,6 +10,7 @@ import ListItemAirports from './ListItemAirports';
 
 import { useStyles } from '../hooks/useStyle';
 import { checkIndex } from '../../../../../utils/indexCheck';
+import { config } from '../../../../../config';
 
 const InputTo = ({ onUserAction, to, result }) => {
 	const classes = useStyles();
@@ -36,7 +37,7 @@ const InputTo = ({ onUserAction, to, result }) => {
 					{isOpen && (
 						<List className={classes.root} component="nav">
 							{result.map((item, index) => {
-								if (item && item.flightable === null) {
+								if (item && item.flightable === null && item.airports.length > 0) {
 									return (
 										<Fragment key={item._id}>
 											<ListItemCity
@@ -51,21 +52,27 @@ const InputTo = ({ onUserAction, to, result }) => {
 											/>
 
 											{item.airports.length > 1 &&
-												item.airports.map((airport, i) => (
-													<ListItemAirports
-														airport={airport}
-														{...getItemProps({
-															item: airport,
-															key: airport.code,
-															selected: checkIndex(result, airport) === highlightedIndex,
-															button: true,
-															divider: true
-														})}
-													/>
-												))}
+												item.airports.map(
+													(airport, index) =>
+														index < config.search.airportLimit && (
+															<ListItemAirports
+																airport={airport}
+																{...getItemProps({
+																	item: airport,
+																	key: airport.code,
+																	selected:
+																		checkIndex(result, airport) ===
+																		highlightedIndex,
+																	button: true,
+																	divider: true
+																})}
+															/>
+														)
+												)}
 										</Fragment>
 									);
 								}
+								return null;
 							})}
 						</List>
 					)}

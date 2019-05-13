@@ -44,7 +44,8 @@ export const useStyles = makeStyles(theme => ({
 	code: {
 		fontSize: 12,
 		color: '#777',
-		width: 25
+		width: 25,
+		marginRight: 10, 
 	},
 	city: {
 		display: 'flex',
