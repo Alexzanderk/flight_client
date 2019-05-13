@@ -8,7 +8,7 @@ import List from '@material-ui/core/List';
 import ListItemCity from './ListItemCity';
 import ListItemAirports from './ListItemAirports';
 
-import { useStyles } from '../useStyle';
+import { useStyles } from '../hooks/useStyle';
 import { checkIndex } from '../../../../../utils/indexCheck';
 
 const InputTo = ({ onUserAction, to, result }) => {

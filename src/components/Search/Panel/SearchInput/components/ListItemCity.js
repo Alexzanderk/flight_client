@@ -3,7 +3,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 
-import { useStyles } from '../useStyle';
+import { useStyles } from '../hooks/useStyle';
 
 const ListItemCity = ({ item, ...props }) => {
 	const classes = useStyles();

@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import Typography from '@material-ui/core/Typography';
 
-import { useStyles } from '../useStyle';
+import { useStyles } from '../hooks/useStyle';
 const ListItemAirports = ({ airport, ...props }) => {
 	const classes = useStyles();
 

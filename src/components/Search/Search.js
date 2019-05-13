@@ -6,8 +6,7 @@ import AirplaneIcon from '@material-ui/icons/AirplanemodeActive';
 
 import DatePickerWithInputs from '../DatePicker/components/DatePickerWithInputs';
 import Options from './Panel/Options';
-// import SearchFields from './Panel/SearchFields';
-import SearchInput from './Panel/SearchField/SearchInputWithDownshift';
+import SearchInput from './Panel/SearchInput';
 
 const SearchPanel = ({ classes, ...props }) => {
 	return (

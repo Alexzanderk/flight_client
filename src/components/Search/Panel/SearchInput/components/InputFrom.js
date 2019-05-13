@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItemCity from './ListItemCity';
 import ListItemAirports from './ListItemAirports';
 
-import { useStyles } from '../useStyle';
+import { useStyles } from '../hooks/useStyle';
 import { checkIndex } from '../../../../../utils/indexCheck';
 
 const InputFrom = ({ handleChangeDirection, onUserAction, from, result }) => {

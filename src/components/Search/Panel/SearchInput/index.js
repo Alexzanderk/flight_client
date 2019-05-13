@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useContext } from 'react';
 import debounce from 'lodash.debounce';
-// import Downshift from 'downshift';
 
 import InputFrom from './components/InputFrom';
 import InputTo from './components/InputTo';
