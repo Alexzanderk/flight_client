@@ -9,9 +9,12 @@ const ListItemCity = ({ item, ...props }) => {
 	const classes = useStyles();
 
 	return (
-		<ListItem {...props}>
+		<ListItem className={classes.city} {...props}>
 			<Typography noWrap className={classes.name} component="span" variant="inherit">
-				{item.name}
+				{`${item.name}, `} 
+				<Typography noWrap className={classes.country} component="span" variant="caption">
+					{item.country.name}
+				</Typography>
 			</Typography>
 			<Typography className={classes.code} component="span" variant="subtitle2">
 				{item.code}

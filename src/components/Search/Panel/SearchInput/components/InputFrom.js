@@ -3,9 +3,7 @@ import Downshift from 'downshift';
 
 import InputBase from '@material-ui/core/InputBase';
 import List from '@material-ui/core/List';
-import FromToIcon from '@material-ui/icons/SwapHoriz';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
 
 import ListItemCity from './ListItemCity';
 import ListItemAirports from './ListItemAirports';
@@ -13,7 +11,7 @@ import ListItemAirports from './ListItemAirports';
 import { useStyles } from '../hooks/useStyle';
 import { checkIndex } from '../../../../../utils/indexCheck';
 
-const InputFrom = ({ handleChangeDirection, onUserAction, from, result }) => {
+const InputFrom = ({ onUserAction, from, result }) => {
 	const classes = useStyles();
 
 	return (
@@ -29,9 +27,6 @@ const InputFrom = ({ handleChangeDirection, onUserAction, from, result }) => {
 							endAdornment: (
 								<InputAdornment position="end" className={classes.from}>
 									<span className={classes.code}>{from.code}</span>
-									<IconButton onClick={handleChangeDirection}>
-										<FromToIcon />
-									</IconButton>
 								</InputAdornment>
 							),
 							placeholder: 'From',
@@ -50,8 +45,7 @@ const InputFrom = ({ handleChangeDirection, onUserAction, from, result }) => {
 													item,
 													selected: checkIndex(result, item) === highlightedIndex,
 													button: true,
-													divider: true,
-													className: classes.city
+													divider: true
 												})}
 											/>
 											{item.airports.length > 1 &&

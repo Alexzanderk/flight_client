@@ -14,9 +14,11 @@ const SearchPanel = ({ classes, ...props }) => {
 			<Typography className={classes.title} component="h1" variant="h3">
 				Let's find the best tickets
 			</Typography>
+			
 			<div className={classes.container}>
 				<SearchInput>
 					<SearchInput.InputFrom />
+					<SearchInput.ReverseButton />
 					<SearchInput.InputTo />
 				</SearchInput>
 				<DatePickerWithInputs />
@@ -42,6 +44,7 @@ const style = theme => ({
 		background: theme.palette.primary.main
 	},
 	container: {
+		position: 'relative',
 		display: 'flex'
 	},
 	title: {

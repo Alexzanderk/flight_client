@@ -21,6 +21,9 @@ query SEARCH_CITY($query: String! $limit: Int){
       en
     }
     code
+    country {
+      name
+    }
     airports {
       _id
       name

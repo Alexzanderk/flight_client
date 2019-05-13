@@ -11,6 +11,10 @@ export const useStyles = makeStyles(theme => ({
 		marginLeft: -1,
 		zIndex: 100
 	},
+	container: {
+		position: 'relative',
+		display: 'flex',
+	},
 	input: {
 		borderColor: theme.palette.primary.dark,
 		border: '2px solid',
@@ -58,11 +62,15 @@ export const useStyles = makeStyles(theme => ({
 		marginRight: 'auto',
 		fontWeight: 800
 	},
+	country: {
+		color: '#777',
+		fontSize: 12,
+	},
 	icon: {
 		marginLeft: 10,
 		marginRight: 10
 	},
 	'icon name': {
 		color: '#ccc'
-	}
+	},
 }));

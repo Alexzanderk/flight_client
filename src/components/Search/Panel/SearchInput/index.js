@@ -3,18 +3,22 @@ import debounce from 'lodash.debounce';
 
 import InputFrom from './components/InputFrom';
 import InputTo from './components/InputTo';
+import ReverseButton from './components/ReverseButton';
 
 import { SEARCH_CITY_QUERY } from '../../../../graphql/queries';
 import { useClient } from '../../../../client';
 import Context from '../../../../context';
+import { useStyles } from './hooks/useStyle';
 
 const SearchInputWithDownshift = props => {
+	const classes = useStyles();
 	const client = useClient();
 	const { dispatch } = useContext(Context);
 
 	const [from, setFrom] = useState('');
 	const [to, setTo] = useState('');
 	const [result, setResult] = useState([]);
+	console.log(result);
 
 	const getData = debounce(async value => {
 		if (!value) return;
@@ -75,11 +79,10 @@ const SearchInputWithDownshift = props => {
 	};
 
 	return (
-		<Fragment>
+		<div className={classes.container}>
 			{React.Children.map(props.children, child => {
 				if (child.type.displayname === 'InputFrom') {
 					return React.cloneElement(child, {
-						handleChangeDirection,
 						from,
 						result,
 						onUserAction
@@ -88,20 +91,24 @@ const SearchInputWithDownshift = props => {
 
 				if (child.type.displayname === 'InputTo') {
 					return React.cloneElement(child, {
-						setTo,
-						setResult,
-						getData,
 						to,
 						result,
 						onUserAction
 					});
 				}
+
+				if (child.type.displayname === 'ReverseButton') {
+					return React.cloneElement(child, {
+						handleChangeDirection
+					});
+				}
 			})}
-		</Fragment>
+		</div>
 	);
 };
 
 SearchInputWithDownshift.InputFrom = InputFrom;
 SearchInputWithDownshift.InputTo = InputTo;
+SearchInputWithDownshift.ReverseButton = ReverseButton;
 
 export default SearchInputWithDownshift;
